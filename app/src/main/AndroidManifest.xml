@@ -16,6 +16,9 @@
         android:theme="@style/Theme.GoldenRomance"
         tools:targetApi="31">
         <activity
+            android:name=".activity_main"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity

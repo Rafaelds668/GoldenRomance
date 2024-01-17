@@ -6,13 +6,14 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
 
@@ -36,7 +37,8 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mLogin = findViewById(R.id.login)
         mEmail = findViewById(R.id.email)
-        mPassword = findViewById(R.id.forgetPasswordButton)
+        mPassword = findViewById(R.id.password)
+        mForgetPassword = findViewById(R.id.forgetPassword)
 
         mLogin.setOnClickListener {
             loginClicked = true
@@ -72,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                                 } else {
                                     Toast.makeText(
                                         this@LoginActivity,
-                                        "Please verify your email",
+                                        "Por favor verifica el correo.",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
@@ -80,9 +82,45 @@ class LoginActivity : AppCompatActivity() {
                         })
             }
         }
+
+        mForgetPassword.setOnClickListener {
+            spinner.visibility = View.VISIBLE
+            val i = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
+            startActivity(i)
+            finish()
+            return@setOnClickListener
+        }
+
+        firebaseAuthStateListener = FirebaseAuth.AuthStateListener {
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null && user.isEmailVerified && !loginClicked) {
+                spinner.visibility = View.VISIBLE
+                val i = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(i)
+                finish()
+                spinner.visibility = View.GONE
+                return@AuthStateListener
+            }
+        }
     }
 
     private fun isStringNull(email: String?): Boolean {
-        return email.isNullOrEmpty()
+        return email.equals("")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mAuth.addAuthStateListener(firebaseAuthStateListener)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mAuth.removeAuthStateListener(firebaseAuthStateListener)
+    }
+
+    override fun onBackPressed() {
+        val i = Intent(this@LoginActivity, Choose_Login_And_Reg::class.java)
+        startActivity(i)
+        finish()
     }
 }
