@@ -4,6 +4,7 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--  Global color attributes  -->
         <item name="android:statusBarColor">@color/colorAccent</item>
@@ -38,21 +39,26 @@
         <!--  Bottom Navigation widget style attribute  -->
         <item name="bottomNavigationStyle">@style/AppBottomNavigation</item>
     </style>
+
     <style name="AppTextAppearance.Chip" parent="TextAppearance.MaterialComponents.Chip">
         <item name="fontFamily">@font/roboto_mono_regular</item>
         <item name="android:fontFamily">@font/roboto_mono_regular</item>
     </style>
+
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
     </style>
+
     <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">2dp</item>
     </style>
+
     <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">2dp</item>
     </style>
+
     <style name="AppShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">2dp</item>
@@ -62,20 +68,27 @@
     <style name="AppChip" parent="Widget.MaterialComponents.Chip.Action">
         <item name="android:textAppearance">@style/AppTextAppearance.Chip</item>
     </style>
+
     <style name="AppChip.Standalone" parent="Widget.MaterialComponents.Chip.Entry">
         <item name="android:textAppearance">@style/AppTextAppearance.Chip</item>
     </style>
+
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">?attr/colorSecondary</item>
         <item name="android:textColor">@color/button_text_color</item>
         <item name="iconTint">@color/button_text_color</item>
         <item name="rippleColor">@color/button_ripple_color</item>
     </style>
+
     <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/text_field_background</item>
     </style>
+
     <style name="AppCard" parent="Widget.MaterialComponents.CardView">
         <item name="cardElevation">8dp</item>
     </style>
-    <style name="AppBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored"/>
+
+    <style name="AppBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored" />
+
+    <style name="Theme.GoldenRomance" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
