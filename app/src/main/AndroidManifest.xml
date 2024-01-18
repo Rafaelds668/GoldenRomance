@@ -16,6 +16,9 @@
         android:theme="@style/Theme.GoldenRomance"
         tools:targetApi="31">
         <activity
+            android:name=".Choose_Login_And_Reg"
+            android:exported="false" />
+        <activity
             android:name=".BtnLikeActivity"
             android:exported="false" />
         <activity
