@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         mLogin = findViewById(R.id.login)
         mEmail = findViewById(R.id.email)
         mPassword = findViewById(R.id.password)
-        mForgetPassword = findViewById(R.id.forgetPassword)
+        mForgetPassword = findViewById(R.id.recordarContraseñaBoton)
 
         mLogin.setOnClickListener {
             loginClicked = true
@@ -84,13 +84,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         mForgetPassword.setOnClickListener {
+
             spinner.visibility = View.VISIBLE
             val i = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
             startActivity(i)
             finish()
             return@setOnClickListener
         }
-
         firebaseAuthStateListener = FirebaseAuth.AuthStateListener {
             val user = FirebaseAuth.getInstance().currentUser
             if (user != null && user.isEmailVerified && !loginClicked) {
@@ -103,11 +103,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun isStringNull(email: String?): Boolean {
         return email.equals("")
     }
-
     override fun onStart() {
         super.onStart()
         mAuth.addAuthStateListener(firebaseAuthStateListener)
@@ -119,7 +117,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val i = Intent(this@LoginActivity, Choose_Login_And_Reg::class.java)
+        super.onBackPressed()
+        val i = Intent(this@LoginActivity, LoginYRegistro::class.java)
         startActivity(i)
         finish()
     }
