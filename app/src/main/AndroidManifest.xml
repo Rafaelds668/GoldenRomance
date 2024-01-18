@@ -16,7 +16,10 @@
         android:theme="@style/Theme.GoldenRomance"
         tools:targetApi="31">
         <activity
-            android:name=".activity_main"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroActivity"
             android:exported="false" />
         <activity
             android:name=".ForgetPasswordActivity"

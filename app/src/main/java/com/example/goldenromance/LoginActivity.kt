@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         mLogin = findViewById(R.id.login)
         mEmail = findViewById(R.id.email)
         mPassword = findViewById(R.id.password)
-        mForgetPassword = findViewById(R.id.forgetPassword)
+        mForgetPassword = findViewById(R.id.recordarContraseñaBoton)
 
         mLogin.setOnClickListener {
             loginClicked = true
@@ -119,7 +119,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val i = Intent(this@LoginActivity, Choose_Login_And_Reg::class.java)
+        super.onBackPressed()
+        val i = Intent(this@LoginActivity, LoginYRegistro::class.java)
         startActivity(i)
         finish()
     }
