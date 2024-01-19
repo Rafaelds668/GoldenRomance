@@ -16,7 +16,7 @@
         android:theme="@style/Theme.GoldenRomance"
         tools:targetApi="31">
         <activity
-            android:name=".Choose_Login_And_Reg"
+            android:name=".LoginYRegistro"
             android:exported="false" />
         <activity
             android:name=".BtnLikeActivity"
@@ -28,7 +28,7 @@
             android:name=".MatchesActivity"
             android:exported="false" />
         <activity
-            android:name=".BtnDislikeActivity"
+            android:name=".BtnDisLikeActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -44,9 +44,6 @@
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.GoldenRomance" />
-        <activity
-            android:name=".LoginYRegistro"
-            android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
